@@ -7,8 +7,8 @@
 
 provider "aws" {
     region = var.AWS_REGION
-    access_key = local.aws_creds.AWS_ACCESS_KEY
-    secret_key = local.aws_creds.AWS_SECRET_KEY
+    access_key = var.AWS_ACCESS_KEY
+    secret_key = var.AWS_SECRET_KEY
 }
 
 ############ PROVIDER FOR SOPS DB SECRETS ENCRYPTION ############
