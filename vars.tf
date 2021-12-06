@@ -36,21 +36,21 @@ variable "instance_type" {
 }
 
 
-variable "PATH_TO_BAST_PRIVATE_KEY" {
-  default = "MyEC2KeyPair.ppk"
-}
+# variable "PATH_TO_BAST_PRIVATE_KEY" {
+#   default = "MyEC2KeyPair.ppk"
+# }
 
-variable "PATH_TO_BAST_PUBLIC_KEY" {
-  default = "MyEC2KeyPair.pub"
-}
+# variable "PATH_TO_BAST_PUBLIC_KEY" {
+#   default = "MyEC2KeyPair.pub"
+# }
 
-variable "PATH_TO_APP_PRIVATE_KEY" {
-  default = "MyEC2KeyPair_Priv.ppk"
-}
+# variable "PATH_TO_APP_PRIVATE_KEY" {
+#   default = "MyEC2KeyPair_Priv.ppk"
+# }
 
-variable "PATH_TO_APP_PUBLIC_KEY" {
-  default = "MyEC2KeyPair_Priv.pub"
-}
+# variable "PATH_TO_APP_PUBLIC_KEY" {
+#   default = "MyEC2KeyPair_Priv.pub"
+# }
 
 variable "AMIS" {
   type = map(string)
