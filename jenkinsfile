@@ -9,16 +9,10 @@ pipeline {
     }
 
     stages{
-        // stage('AWS credentials'){
-        //     environment {
-        //         AWS_ACCESS_KEY = "${AWS_ACCESS_KEY}"
-        //         AWS_SECRET_KEY = "${AWS_SECRET_KEY}"
-        //     }
-        // }
-
         stage('terraform init'){
             steps {
-                 sh "terraform init"
+                slackSend (color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                sh "terraform init"
             }
         }
 
