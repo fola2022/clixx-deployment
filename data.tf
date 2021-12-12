@@ -43,12 +43,12 @@ data "aws_secretsmanager_secret_version" "creds" {
 # }
 
 
-# data "aws_ami" "clixx-ami" {
-#   most_recent     = true
-#   owners          = ["self"]
-#   name_regex="^"
-#   filter {
-#     name          = "name"
-#     values        = ["TESTIMG"]
-#   }
-# }
+data "aws_ami" "clixx" {
+  most_recent     = true
+  owners          = ["self"]
+  name_regex="^"
+  filter {
+    name          = "name"
+    values        = ["ami-stack-2.1"]
+  }
+}
