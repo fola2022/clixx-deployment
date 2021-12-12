@@ -69,22 +69,22 @@ resource "aws_route_table_association" "pub2" {
 ######################################################################
 
 ######## CREATE AMI
-data "aws_ami" "clixx" {
-    owners      = ["amazon"]
-    most_recent = true
-    filter {
-      name      = "virtualization-type"
-      values    = ["hvm"]
-    }
-    filter {
-      name      = "architecture"
-      values    = ["x86_64"]
-    }
-    filter {
-      name      = "name"
-      values    = ["amzn2-ami-hvm-2.0*"]
-    }
-}
+# data "aws_ami" "clixx" {
+#     owners      = ["amazon"]
+#     most_recent = true
+#     filter {
+#       name      = "virtualization-type"
+#       values    = ["hvm"]
+#     }
+#     filter {
+#       name      = "architecture"
+#       values    = ["x86_64"]
+#     }
+#     filter {
+#       name      = "name"
+#       values    = ["amzn2-ami-hvm-2.0*"]
+#     }
+# }
 # ###### CREATE EBS VOLUME
 # resource "aws_ebs_volume" "clixx" {
 #   availability_zone = "us-east-1a"
