@@ -7,21 +7,21 @@ exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 
 
 ####mount EFS
-yum -y update
-yum install -y amazon-efs-utils
-yum -y install nfs-utils
+# yum -y update
+# yum install -y amazon-efs-utils
+# yum -y install nfs-utils
 mkdir -p ${MOUNT_POINT}
 chown ec2-user:ec2-user ${MOUNT_POINT}
 mount -t efs "${FILE_SYSTEM_ID}":/ ${MOUNT_POINT}
 chmod -R 755 ${MOUNT_POINT}
-amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
+# amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
 
 
 ##Install the needed packages and enable the services(MariaDb, Apache)
 #sudo yum update -y
-yum install git -y
-amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
-yum install -y httpd mariadb-server
+#yum install git -y
+#amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
+# yum install -y httpd mariadb-server
 systemctl start httpd
 systemctl enable httpd
 systemctl is-enabled httpd

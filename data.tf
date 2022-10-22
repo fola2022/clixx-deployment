@@ -17,10 +17,9 @@ data "aws_secretsmanager_secret_version" "creds" {
   secret_id = "db-creds"
 }
 
-locals {
-  db_creds = jsondecode(data.aws_secretsmanager_secret_version.creds.secret_string)
-
-}
+# locals {
+#   db_creds = jsondecode(data.aws_secretsmanager_secret_version.creds.secret_string)
+# }
 ###########################################################
 
 
@@ -44,12 +43,12 @@ locals {
 # }
 
 
-# data "aws_ami" "clixx-ami" {
-#   most_recent     = true
-#   owners          = ["self"]
-#   name_regex="^"
-#   filter {
-#     name          = "name"
-#     values        = ["TESTIMG"]
-#   }
-# }
+data "aws_ami" "clixx" {
+  most_recent     = true
+  owners          = ["self"]
+  name_regex="^"
+  filter {
+    name          = "name"
+    values        = ["ami-stack-2.1"]
+  }
+}

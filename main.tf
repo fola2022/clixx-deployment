@@ -69,22 +69,22 @@ resource "aws_route_table_association" "pub2" {
 ######################################################################
 
 ######## CREATE AMI
-data "aws_ami" "clixx" {
-    owners      = ["amazon"]
-    most_recent = true
-    filter {
-      name      = "virtualization-type"
-      values    = ["hvm"]
-    }
-    filter {
-      name      = "architecture"
-      values    = ["x86_64"]
-    }
-    filter {
-      name      = "name"
-      values    = ["amzn2-ami-hvm-2.0*"]
-    }
-}
+# data "aws_ami" "clixx" {
+#     owners      = ["amazon"]
+#     most_recent = true
+#     filter {
+#       name      = "virtualization-type"
+#       values    = ["hvm"]
+#     }
+#     filter {
+#       name      = "architecture"
+#       values    = ["x86_64"]
+#     }
+#     filter {
+#       name      = "name"
+#       values    = ["amzn2-ami-hvm-2.0*"]
+#     }
+# }
 # ###### CREATE EBS VOLUME
 # resource "aws_ebs_volume" "clixx" {
 #   availability_zone = "us-east-1a"
@@ -328,13 +328,15 @@ resource "aws_efs_mount_target" "clixx-mt2" {
 ######################### BASTION KEYPAIR ############################
 resource "aws_key_pair" "bast-key" {
   key_name   = "MyEC2keypair"
-  public_key = file(var.PATH_TO_BAST_PUBLIC_KEY)
+  public_key = local.db_creds.MyEC2KeyPair
+  # public_key = file(var.PATH_TO_BAST_PUBLIC_KEY)
 }
 
 ##################### APP SERVER KEYPAIR ###########################
 resource "aws_key_pair" "app-key" {
   key_name   = "MyEC2keypair_Priv"
-  public_key = file(var.PATH_TO_APP_PUBLIC_KEY)
+  public_key = local.db_creds.MyEC2KeyPair_Priv
+  # public_key = file(var.PATH_TO_APP_PUBLIC_KEY)
 }
 ####################################################################
 
